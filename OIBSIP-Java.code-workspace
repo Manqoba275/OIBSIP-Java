@@ -1,0 +1,26 @@
+{
+  "folders": [
+    {
+      "name": "Online Reservation System",
+      "path": "Java-Task1-OnlineReservationSystem"
+    },
+    {
+      "name": "ATM Interface",
+      "path": "Java-Task3-ATMInterface"
+    },
+    {
+      "name": "Online Examination System",
+      "path": "Java-Task4-OnlineExaminationSystem"
+    },
+    {
+      "name": "Digital Library Management System",
+      "path": "Java-Task5-DigitalLibraryManagementSystem"
+    }
+  ],
+  "settings": {},
+  "extensions": {
+    "recommendations": [
+      "vscjava.vscode-java-pack"
+    ]
+  }
+}
