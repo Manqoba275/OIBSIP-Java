@@ -61,7 +61,7 @@ From this folder, run:
 
 No external dependencies or database are needed. The tests cover authentication, exact decimal arithmetic, full-balance withdrawal, transfer bookkeeping, rejected-operation invariants, immutable history, duplicate accounts, login lockout, invalid console input and end-of-input handling.
 
-Expected result: 22 banking checks and 24 console interaction checks pass.
+Expected result: 28 banking checks and 24 console interaction checks pass.
 See `output/test-results.txt` and `output/sample-session.txt` for recorded output.
 
 ## Submission evidence
@@ -70,3 +70,18 @@ Add your own screenshots to `screenshots/` and record an end-to-end demonstratio
 Demo video link: not yet recorded.
 
 Requirements source: supplied OASIS INFOBYTE Task List, Java Task 3 (pages 16-17).
+
+## Performance
+
+Unchanged transaction histories reuse an immutable snapshot. A successful transaction invalidates that snapshot, so the next history request is fresh while previously returned snapshots stay unchanged. History display reads one snapshot per request. Date formatting and amount-validation patterns are reused instead of rebuilt repeatedly.
+
+A local JDK 23 benchmark rendered 2,000 transactions 100 times, after 20 warmup renders, in each of three separate JVM processes with a 128 MB heap. Median elapsed time changed from 232.50 ms to 189.04 ms (about 19% lower). Per-thread allocated memory changed from about 214.72 MiB to 101.47 MiB (about 53% lower). These figures measure in-memory history formatting, excluding terminal output; they are not a guarantee of overall application speed or a reduction in peak RAM use. Reusing a snapshot retains its reference array until the next transaction. The application remains single-threaded.
+
+To repeat the benchmark with JDK 23 from this project folder:
+
+```powershell
+javac -J-Xmx128m -d bin src/*.java benchmarks/HistoryBenchmark.java
+java -Xmx128m -cp bin HistoryBenchmark
+```
+
+Raw measurements are recorded in `output/performance-results.txt`.

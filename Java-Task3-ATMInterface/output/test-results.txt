@@ -2,5 +2,5 @@ Verification date: 2026-10-10
 Runtime: JDK 23
 Command: test.cmd
 
-Bank checks passed: 22
+Bank checks passed: 28
 ATM interaction checks passed: 24

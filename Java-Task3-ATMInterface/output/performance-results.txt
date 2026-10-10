@@ -1,0 +1,21 @@
+History rendering benchmark, 2026-10-10
+JDK 23, -Xmx128m, 2000 transactions, 20 warmup renders, 100 measured renders.
+Each row is a separate JVM. Time excludes printing to the terminal.
+Allocation is measured on the current thread using ThreadMXBean, not peak memory.
+
+Baseline commit: d34f62951d4ebcf3acc2a8f6303279c3d7f8e99e
+Elapsed ms | Allocated MiB
+232.50 | 214.72
+234.30 | 214.76
+206.27 | 214.72
+
+Optimized working tree:
+Elapsed ms | Allocated MiB
+189.04 | 101.47
+176.89 | 101.47
+222.91 | 101.47
+
+Checksum in every run: 13547160
+Median time: 232.50 -> 189.04 ms
+Allocation: approximately 214.72 -> 101.47 MiB
+Results vary with JVM warmup, background load and hardware.
