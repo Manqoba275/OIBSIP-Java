@@ -7,6 +7,7 @@ public final class Account {
     private final String pin;
     private BigDecimal balance;
     private final ArrayList<Transaction> transactions = new ArrayList<>();
+    private List<Transaction> historySnapshot = List.of();
 
     public Account(String id, String pin, BigDecimal openingBalance) {
         if (id == null || id.isBlank() || pin == null || !pin.matches("[0-9]{4}")) {
@@ -22,11 +23,15 @@ public final class Account {
 
     public String getId() { return id; }
     public BigDecimal getBalance() { return balance; }
-    public List<Transaction> getTransactions() { return List.copyOf(transactions); }
+    public List<Transaction> getTransactions() {
+        if (historySnapshot == null) historySnapshot = List.copyOf(transactions);
+        return historySnapshot;
+    }
     boolean matchesPin(String candidate) { return pin.equals(candidate); }
 
     void record(Transaction transaction) {
         balance = transaction.balanceAfter();
         transactions.add(transaction);
+        historySnapshot = null;
     }
 }

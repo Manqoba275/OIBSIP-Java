@@ -1,7 +1,10 @@
 import java.math.BigDecimal;
 import java.util.Scanner;
+import java.util.List;
+import java.util.regex.Pattern;
 
 public final class ATM {
+    private static final Pattern AMOUNT = Pattern.compile("[0-9]+(?:\\.[0-9]{1,2})?");
     private final Bank bank;
     private final Scanner input;
 
@@ -71,17 +74,18 @@ public final class ATM {
     }
 
     private void showHistory(Account account) {
-        if (account.getTransactions().isEmpty()) {
+        List<Transaction> history = account.getTransactions();
+        if (history.isEmpty()) {
             System.out.println("No transactions in this session.");
         } else {
-            account.getTransactions().forEach(System.out::println);
+            history.forEach(System.out::println);
         }
     }
 
     private BigDecimal readAmount() {
         String value = read("Amount (R): ");
         if (value == null) return null;
-        if (!value.matches("[0-9]+(?:\\.[0-9]{1,2})?")) {
+        if (!AMOUNT.matcher(value).matches()) {
             throw new IllegalArgumentException("Enter a positive amount with up to two decimal places.");
         }
         return new BigDecimal(value);

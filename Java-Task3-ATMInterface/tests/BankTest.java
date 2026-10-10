@@ -41,7 +41,18 @@ public class BankTest {
         check(a.getTransactions().size() == 4 && b.getTransactions().size() == 1, "Rejected operations preserve history");
         try { a.getTransactions().clear(); throw new AssertionError("History is mutable"); }
         catch (UnsupportedOperationException expected) { checks++; }
+        var previousHistory = a.getTransactions();
+        check(previousHistory == a.getTransactions(), "Reuse unchanged history snapshot");
         bank.withdraw(a, money("50.00"));
+        check(previousHistory.size() == 4, "Earlier snapshot stays unchanged after withdrawal");
+        check(a.getTransactions().size() == 5, "New snapshot includes withdrawal");
+        check(previousHistory != a.getTransactions(), "Mutation invalidates cached snapshot");
+        var senderHistory = a.getTransactions();
+        var recipientHistory = b.getTransactions();
+        bank.transfer(b, "1001", money("1.00"));
+        check(a.getTransactions().size() == 6 && b.getTransactions().size() == 2, "Transfer invalidates both snapshots");
+        check(senderHistory.size() == 5 && recipientHistory.size() == 1, "Transfer preserves old snapshots");
+        bank.withdraw(a, money("1.00"));
         check(a.getBalance().equals(money("0.00")), "Withdraw entire balance");
         System.out.println("Bank checks passed: " + checks);
     }
