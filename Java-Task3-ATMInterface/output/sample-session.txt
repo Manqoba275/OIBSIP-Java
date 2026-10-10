@@ -1,0 +1,44 @@
+=== ATM Interface ===
+User ID: PIN: Login successful.
+
+Account: 1001 | Balance: R1000.00
+1. Transaction History
+2. Withdraw
+3. Deposit
+4. Transfer
+5. Quit
+Choose an option: Amount (R): Deposit successful.
+
+Account: 1001 | Balance: R1100.50
+1. Transaction History
+2. Withdraw
+3. Deposit
+4. Transfer
+5. Quit
+Choose an option: Amount (R): Withdrawal successful.
+
+Account: 1001 | Balance: R1080.50
+1. Transaction History
+2. Withdraw
+3. Deposit
+4. Transfer
+5. Quit
+Choose an option: Recipient account ID: Amount (R): Transfer successful.
+
+Account: 1001 | Balance: R1030.50
+1. Transaction History
+2. Withdraw
+3. Deposit
+4. Transfer
+5. Quit
+Choose an option: 2026-10-10 17:45:12 | DEPOSIT | R100.50 | Balance: R1100.50
+2026-10-10 17:45:12 | WITHDRAWAL | R20.00 | Balance: R1080.50
+2026-10-10 17:45:12 | TRANSFER OUT | R50.00 | Account: 1002 | Balance: R1030.50
+
+Account: 1001 | Balance: R1030.50
+1. Transaction History
+2. Withdraw
+3. Deposit
+4. Transfer
+5. Quit
+Choose an option: Goodbye!

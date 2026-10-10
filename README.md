@@ -1,6 +1,6 @@
 # OIBSIP - Java Development
 
-Four starter projects for the OASIS INFOBYTE internship. Application features are intentionally unimplemented so the repository owner can code them independently.
+Four projects for the OASIS INFOBYTE internship. The ATM Interface is implemented and tested; the other projects are available for independent development.
 
 ## Projects
 
@@ -13,7 +13,7 @@ Four starter projects for the OASIS INFOBYTE internship. Application features ar
 
 Open `OIBSIP-Java.code-workspace` to see all four projects. For the simplest run/debug workflow, open one project folder directly. Use a JDK and the Java Extension Pack. JDK 23 was detected during setup.
 
-The three desktop/console projects contain an empty `Main` entry point. The ATM also has four empty class shells. The library project contains source and web folders only; choose your web framework before adding its build configuration.
+The ATM is a runnable console application with demo accounts and automated checks. See its project README for instructions. The library project contains source and web folders only; choose your web framework before adding its build configuration.
 
 ## Repository naming decision
 

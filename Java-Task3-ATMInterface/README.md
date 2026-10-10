@@ -1,37 +1,72 @@
 # ATM Interface
 
-OASIS INFOBYTE - Java Development, Task 3.
+A Java console ATM simulation for OASIS INFOBYTE Java Development, Task 3.
 
-**Status: scaffold only. Implementation has not started.**
+## Run
 
-## Required technology
+Requires JDK 17 or later (`java` and `javac` on PATH). Tested with JDK 23.
+Open this folder in VS Code and run `src/Main.java`, or double-click `run.cmd`.
+The launcher compiles the sources, starts the ATM and keeps the window open when it exits.
 
-Java console application with object-oriented design.
-
-## Requirements checklist
-
-- [ ] Authenticate with User ID and PIN; deny access after 3 incorrect attempts.
-- [ ] Menu: Transaction History, Withdraw, Deposit, Transfer and Quit.
-- [ ] Withdraw: validate balance, update balance and log the transaction.
-- [ ] Deposit: update balance and log the transaction.
-- [ ] Transfer: ask for recipient account ID and amount, validate balance, update both accounts and log the transaction.
-- [ ] Show Insufficient Funds when withdrawal or transfer exceeds the balance.
-- [ ] Store current-session transactions in an ArrayList and display the history clearly.
-- [ ] Use at least five classes: ATM, Account, Transaction, Bank and Main.
-- [ ] Quit with a goodbye message.
-
-## Develop in VS Code
-
-Open this project folder directly in VS Code. Edit `src/Main.java`, then use **Run Java** above `main` or press F5. The entry point is intentionally empty and currently produces no output. Add your own classes and implementation. For command-line use from this folder:
+From PowerShell in this folder:
 
 ```powershell
-New-Item -ItemType Directory -Force bin | Out-Null
-javac -d bin src/*.java
-java -cp bin Main
+.\run.cmd
 ```
 
-## Evidence and documentation
+## Demo accounts
 
-Add screenshots to `screenshots/` and relevant non-sensitive outputs to `output/`. Update this README with your design, setup steps, usage, verification and demo link after implementing the project. Empty folders are tracked with `.gitkeep`.
+These are fictional accounts, reset whenever the program starts.
 
-Source: supplied OASIS INFOBYTE Task List, Java task cards (pages 15-18).
+| User ID | PIN | Opening balance |
+| --- | --- | --- |
+| 1001 | 1234 | R1000.00 |
+| 1002 | 5678 | R500.00 |
+
+The console displays entered PINs. This is an in-memory learning simulation, not a real banking system. Do not enter real credentials. Balances and transaction histories are not saved after exit. The three-attempt login limit applies to the current program run.
+
+## Features
+
+- [x] User ID and PIN login; access denied after three failed attempts.
+- [x] Transaction History, Withdraw, Deposit, Transfer and Quit menu options.
+- [x] Exact decimal balances using BigDecimal.
+- [x] Positive amounts with at most two decimal places.
+- [x] Insufficient-funds checks before withdrawal and transfer.
+- [x] Transfer updates both accounts and records both sides.
+- [x] Invalid recipient and self-transfer rejection.
+- [x] ArrayList transaction history with timestamps, amounts and resulting balances.
+- [x] Invalid menu/input recovery and graceful exit when input closes.
+- [x] Five application classes: ATM, Account, Transaction, Bank and Main.
+
+## Try a session
+
+1. Log in with User ID `1001`, PIN `1234`.
+2. Choose `3` and deposit `100.50`.
+3. Choose `2` and withdraw `20`.
+4. Choose `4`, recipient `1002`, amount `50`.
+5. Choose `1` to view all three transactions. Your balance is `R1030.50`.
+6. Choose `5` to quit.
+
+## Design
+
+`Main` creates the demo bank and launches the console. `ATM` handles input, authentication attempts and menu interaction. `Bank` validates account membership, amounts and transfers. `Account` encapsulates balances and exposes read-only history snapshots. `Transaction` stores an immutable transaction entry. All validation occurs before a transfer changes either balance.
+
+## Tests
+
+From this folder, run:
+
+```powershell
+.\test.cmd
+```
+
+No external dependencies or database are needed. The tests cover authentication, exact decimal arithmetic, full-balance withdrawal, transfer bookkeeping, rejected-operation invariants, immutable history, duplicate accounts, login lockout, invalid console input and end-of-input handling.
+
+Expected result: 22 banking checks and 24 console interaction checks pass.
+See `output/test-results.txt` and `output/sample-session.txt` for recorded output.
+
+## Submission evidence
+
+Add your own screenshots to `screenshots/` and record an end-to-end demonstration.
+Demo video link: not yet recorded.
+
+Requirements source: supplied OASIS INFOBYTE Task List, Java Task 3 (pages 16-17).
