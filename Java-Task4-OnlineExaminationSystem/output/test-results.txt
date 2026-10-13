@@ -1,0 +1,12 @@
+Verification date: 2026-10-13
+Environment: Windows, JDK 23
+
+Command: test.cmd
+Exam session checks passed: 24
+User profile checks passed: 13
+Swing interaction checks passed: 18
+Total: 55 checks passed
+
+Source compatibility: javac --release 17 passed.
+Four actual Swing panels rendered to PNG and visually inspected.
+UI actions were exercised headlessly; native operating-system dialogs were not automated.
