@@ -1,0 +1,12 @@
+Verification date: 2026-10-14
+Environment: Windows, JDK 23, Java 17 compilation target
+Command: test.cmd
+
+Database and password checks passed: 9
+Reservation service checks passed: 34
+Swing reservation checks passed: 15
+Total: 58 checks passed
+
+Database tests use temporary SQLite files, not the application database.
+Rendered login, reservation, booking lookup and cancelled lookup panels were visually inspected.
+Swing tests inject dialog decisions; native dialogs were not automated.

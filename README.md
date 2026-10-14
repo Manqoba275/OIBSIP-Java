@@ -1,6 +1,6 @@
 # OIBSIP - Java Development
 
-Four projects for the OASIS INFOBYTE internship. The ATM Interface and Online Examination System are implemented and tested; the other projects are available for independent development.
+Four projects for the OASIS INFOBYTE internship. The Online Reservation System, ATM Interface and Online Examination System are implemented and tested. Digital Library Management remains available for independent development.
 
 ## Projects
 
@@ -13,7 +13,7 @@ Four projects for the OASIS INFOBYTE internship. The ATM Interface and Online Ex
 
 Open `OIBSIP-Java.code-workspace` to see all four projects. For the simplest run/debug workflow, open one project folder directly. Use a JDK and the Java Extension Pack. JDK 23 was detected during setup.
 
-The ATM is a runnable console application, and Online Examination is a Swing desktop application. Both have demo credentials and automated checks. See their project READMEs for instructions. The library project contains source and web folders only; choose your web framework before adding its build configuration.
+The ATM is a runnable console application, and Online Examination is a Swing desktop application. Online Reservation adds a Swing booking interface with SQLite persistence. All three have demo credentials and automated checks. See their project READMEs for instructions. The library project contains source and web folders only; choose your web framework before adding its build configuration.
 
 ## Repository naming decision
 
