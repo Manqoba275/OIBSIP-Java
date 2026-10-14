@@ -5,5 +5,7 @@
   "java.project.outputPath": "bin",
   "java.project.referencedLibraries": [
     "lib/**/*.jar"
-  ]
+  ],
+  "java.jdt.ls.vmargs": "-XX:+UseSerialGC -Xms64m -Xmx512m -Xlog:disable",
+  "java.autobuild.enabled": false
 }

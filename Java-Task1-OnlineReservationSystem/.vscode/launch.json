@@ -7,7 +7,8 @@
       "request": "launch",
       "mainClass": "Main",
       "cwd": "${workspaceFolder}",
-      "console": "integratedTerminal"
+      "console": "integratedTerminal",
+      "vmArgs": "-Xms16m -Xmx128m"
     }
   ]
 }
