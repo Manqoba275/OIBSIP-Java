@@ -1,0 +1,1 @@
+{"version":"0.2.0","configurations":[{"type":"java","name":"Run Digital Library","request":"launch","mainClass":"Main","cwd":"${workspaceFolder}","vmArgs":"-Xms32m -Xmx192m","preLaunchTask":"Build library","console":"integratedTerminal"}]}
