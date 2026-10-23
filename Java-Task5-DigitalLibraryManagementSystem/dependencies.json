@@ -1,0 +1,27 @@
+[
+  {
+    "name": "sqlite-jdbc-3.53.4.0.jar",
+    "url": "https://repo.maven.apache.org/maven2/org/xerial/sqlite-jdbc/3.53.4.0/sqlite-jdbc-3.53.4.0.jar",
+    "sha256": "bcb1f51e36f940867e83342f9efbf5968ac44a6bef4d397bb4af7b17b45cd2fb"
+  },
+  {
+    "name": "slf4j-api-1.7.36.jar",
+    "url": "https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar",
+    "sha256": "d3ef575e3e4979678dc01bf1dcce51021493b4d11fb7f1be8ad982877c16a1c0"
+  },
+  {
+    "name": "slf4j-nop-1.7.36.jar",
+    "url": "https://repo.maven.apache.org/maven2/org/slf4j/slf4j-nop/1.7.36/slf4j-nop-1.7.36.jar",
+    "sha256": "c214958b07816cb4412b30c7bdbd4308ffdc6ba2a83767b8f3a9229cbd9274d6"
+  },
+  {
+    "name": "tomcat-embed-core-10.1.61.jar",
+    "url": "https://repo.maven.apache.org/maven2/org/apache/tomcat/embed/tomcat-embed-core/10.1.61/tomcat-embed-core-10.1.61.jar",
+    "sha256": "57b8e4bdb3a49163c3a6a501929240531523c111ff53844c9f82efba60f789f7"
+  },
+  {
+    "name": "jakarta.annotation-api-2.1.1.jar",
+    "url": "https://repo.maven.apache.org/maven2/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar",
+    "sha256": "5f65fdaf424eee2b55e1d882ba9bb376be93fb09b37b808be6e22e8851c909fe"
+  }
+]
